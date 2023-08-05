@@ -1,0 +1,7 @@
+.cover-wrapper {
+    background-position: center;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    background-image: url("./images/covers/1.png");
+}

@@ -1,0 +1,31 @@
+Id,Artist,Title,Album,Genre,Year,Danceability,Feeling,Noise,Median
+1,Beyoncé,Halo,I Am... Sasha Fierce,Pop,2008,76,85,12,0.57
+2,Ed Sheeran,Shape of You,÷ (Divide),Pop,2017,89,72,5,0.55
+3,Queen,Bohemian Rhapsody,A Night at the Opera,Rock,1975,34,91,32,0.52
+4,The Weeknd,Save yours tears,After Hours,R&B,2020,82,68,8,0.53
+5,Billie Eilish,Bad Guy,When We All Fall Asleep Where Do We Go?,Pop,2019,78,57,16,0.50
+6,Coldplay,Yellow,Parachutes,Alternative,2000,45,62,9,0.38
+7,Kendrick Lamar,HUMBLE.,DAMN.,Hip-Hop,2017,78,75,22,0.58
+8,Taylor Swift,Blank Space,1989,Pop,2014,67,62,6,0.45
+9,Metallica,Enter Sandman,Metallica,Heavy Metal,1991,43,78,60,0.60
+10,Drake,Hotline Bling,Views,Hip-Hop,2015,74,54,11,0.46
+11,Michael Jackson,Beat it,Thriller,Pop,1982,81,90,15,0.62
+12,Maroon 5,Sugar,V,Pop,2014,79,70,11,0.58
+13,Adele,Someone Like You,21,Pop,2011,46,88,7,0.50
+14,Imagine Dragons,Believer,Evolve,Alternative,2017,68,64,13,0.55
+15,Justin Bieber,Sorry,Purpose,Pop,2015,77,52,8,0.46
+16,Rihanna,Umbrella,Good Girl Gone Bad,R&B,2007,64,79,18,0.60
+17,Linkin Park,Numb,Meteora,Alternative,2003,43,75,16,0.58
+18,Eminem,Lose Yourself,8 Mile,Hip-Hop,2002,88,65,9,0.54
+19,The Beatles,Hey Jude,The Beatles (White Album),Rock,1968,54,89,24,0.66
+20,Camila Cabello,Havana,Camila,Pop,2017,87,80,6,0.57
+21,Whitney Houston,I Will Always Love You,The Bodyguard,Pop,1992,55,92,10,0.52
+22,Coldplay,Viva la Vida,Viva la Vida or Death and All His Friends,Alternative,2008,73,76,14,0.58
+23,Bruno Mars,Uptown Funk,Mark Ronson's Uptown Special,Pop,2014,92,84,7,0.61
+24,Prince,Purple Rain,Purple Rain,R&B,1984,47,87,20,0.58
+25,Katy Perry,Firework,Teenage Dream,Pop,2010,70,77,9,0.52
+26,Elton John,Your Song,Elton John,Pop,1970,61,81,13,0.55
+27,Alicia Keys,Fallin',Songs in A Minor,R&B,2001,54,73,11,0.48
+28,Lady Gaga,Bad Romance,The Fame Monster,Pop,2009,85,69,17,0.57
+29,Madonna,Like a Prayer,Like a Prayer,Pop,1989,66,85,12,0.56
+30,Shawn Mendes,Señorita,Shawn Mendes,Pop,2019,79,78,8,0.57
