@@ -42,6 +42,18 @@ int main(int argc, char* argv[]) {
         song_builder->get_widget("title", title);
         song_builder->get_widget("artist", artist);
 
+        // Set song_box cover
+        std::string cover_path = "./images/covers/" + std::to_string(song.id) + ".png";
+
+        std::string css_data = "box {"
+                          "   background-image: url('" + cover_path + "');"
+                          "}";
+
+        auto styleContext = cover->get_style_context();
+        auto cssProvider = Gtk::CssProvider::create();
+        cssProvider->load_from_data(css_data);
+        styleContext->add_provider(cssProvider, GTK_STYLE_PROVIDER_PRIORITY_USER);
+
         title->set_label(song.title);
         artist->set_label(song.artist);
 
