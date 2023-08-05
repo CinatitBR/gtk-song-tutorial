@@ -23,7 +23,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkListBox">
+          <object class="GtkListBox" id="song-list">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <child>

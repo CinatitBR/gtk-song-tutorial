@@ -39,7 +39,6 @@
                     <property name="spacing">4</property>
                     <child>
                       <object class="GtkBox">
-                        <property name="name">cover-wrapper</property>
                         <property name="width-request">80</property>
                         <property name="height-request">80</property>
                         <property name="visible">True</property>
@@ -48,6 +47,9 @@
                         <child>
                           <placeholder/>
                         </child>
+                        <style>
+                          <class name="cover-wrapper"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="expand">False</property>
