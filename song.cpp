@@ -47,7 +47,7 @@ public:
     }
 
     // Print song details
-    void print() {
+    void print() const {
         std::cout << "Id: " << id << std::endl;
         std::cout << "Artist: " << artist << std::endl;
         std::cout << "Title: " << title << std::endl;
@@ -61,7 +61,7 @@ public:
     }
 
     // Parse csv file and create a vector of songs.
-    std::vector<Song> read_from_csv(const std::string& filename) {
+    static std::vector<Song> read_from_csv(const std::string& filename) {
         std::ifstream arquivo(filename);
         std::string linha;
         std::vector<Song> musicas;
