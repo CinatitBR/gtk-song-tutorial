@@ -25,10 +25,29 @@ int main(int argc, char* argv[]) {
 
     // Create song box
     Gtk::Box* song_box;
-    auto song_builder = Gtk::Builder::create_from_file("song-box.xml");
-    song_builder->get_widget("song-box", song_box);
+    Gtk::Box* cover;
+    Gtk::Label* title;
+    Gtk::Label* artist;
 
-    song_list->append(*song_box);
+    // Vector containing the song data
+    std::vector<Song> songs = Song::read_from_csv("songs.csv");
+
+    // Show all the songs
+    for (Song& song : songs) {
+        // Create builer representing the song box
+        auto song_builder = Gtk::Builder::create_from_file("song-box.xml");
+
+        song_builder->get_widget("song-box", song_box);
+        song_builder->get_widget("cover-wrapper", cover);
+        song_builder->get_widget("title", title);
+        song_builder->get_widget("artist", artist);
+
+        title->set_label(song.title);
+        artist->set_label(song.artist);
+
+        // Append song box to the list
+        song_list->append(*song_box);
+    }
 
     app->run(*window);
 }

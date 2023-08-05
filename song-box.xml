@@ -5,7 +5,7 @@
   <property name="halign">start</property>
   <property name="spacing">4</property>
   <child>
-    <object class="GtkBox">
+    <object class="GtkBox" id="cover-wrapper">
       <property name="width-request">80</property>
       <property name="height-request">80</property>
       <property name="visible">True</property>
@@ -51,7 +51,7 @@
             </packing>
           </child>
           <child>
-            <object class="GtkLabel">
+            <object class="GtkLabel" id="title">
               <property name="visible">True</property>
               <property name="can-focus">False</property>
               <property name="label" translatable="yes">My Song</property>
@@ -81,7 +81,7 @@
                 </packing>
               </child>
               <child>
-                <object class="GtkLabel">
+                <object class="GtkLabel" id="artist">
                   <property name="visible">True</property>
                   <property name="can-focus">False</property>
                   <property name="label" translatable="yes">Rihanna</property>
@@ -107,7 +107,7 @@
         </packing>
       </child>
       <child>
-        <object class="GtkLabel">
+        <object class="GtkLabel" id="year">
           <property name="visible">True</property>
           <property name="can-focus">False</property>
           <property name="label" translatable="yes">2015</property>
