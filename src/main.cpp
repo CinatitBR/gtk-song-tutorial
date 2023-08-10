@@ -28,6 +28,8 @@ int main(int argc, char* argv[]) {
     Gtk::Box* cover;
     Gtk::Label* title;
     Gtk::Label* artist;
+    Gtk::Image* like_icon;
+    Gtk::EventBox* like_wrapper;
 
     // Vector containing the song data
     std::vector<Song> songs = Song::read_from_csv("songs.csv");
@@ -41,6 +43,8 @@ int main(int argc, char* argv[]) {
         song_builder->get_widget("cover-wrapper", cover);
         song_builder->get_widget("title", title);
         song_builder->get_widget("artist", artist);
+        song_builder->get_widget("like-icon", like_icon);
+        song_builder->get_widget("like-wrapper", like_wrapper);
 
         // Set song_box cover
         std::string cover_path = "./images/covers/" + std::to_string(song.id) + ".png";
@@ -56,6 +60,22 @@ int main(int argc, char* argv[]) {
 
         title->set_label(song.title);
         artist->set_label(song.artist);
+
+        like_wrapper->signal_button_press_event().connect([&song, like_icon](GdkEventButton* event) -> bool {
+            std::string heart_solid = "./images/icons/heart-solid-icon.png";
+            std::string heart = "./images/icons/heart-icon.png";
+
+            if (song.is_liked) {
+                like_icon->set(heart);
+            }
+            else {
+                like_icon->set(heart_solid);
+            }
+
+            song.is_liked = !song.is_liked;
+
+            return true;
+        });
 
         // Append song box to the list
         song_list->append(*song_box);
