@@ -1,6 +1,7 @@
-#include <gtkmm.h>
 #include <vector>
 #include <gtkmm/box.h>
+#include <gtkmm/dialog.h>
+#include <gtkmm/listbox.h>
 #include "song_item.cpp"
 
 int main(int argc, char* argv[]) {
@@ -24,6 +25,21 @@ int main(int argc, char* argv[]) {
     // Get song-list from the builder
     Gtk::ListBox* song_list;
     builder->get_widget("song-list", song_list);
+
+    // Get the Dialog
+    Gtk::Dialog* dialog;
+    builder->get_widget("dialog", dialog);
+
+    // Get the playlist box
+    Gtk::EventBox* playlist_wrapper;
+    builder->get_widget("playlist-wrapper", playlist_wrapper);
+
+    // Show dialog when playlist box is clicked
+    playlist_wrapper->signal_button_press_event().connect([dialog](GdkEventButton* event) -> bool {
+        dialog->run();
+
+        return true;
+    });
 
     // Get song_count label
     Gtk::Label* song_count_label;
