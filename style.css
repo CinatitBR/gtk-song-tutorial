@@ -1,7 +1,43 @@
+#header-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
 .cover-wrapper {
     background-position: center;
     background-size: 80px;
     background-repeat: no-repeat;
     border-radius: 16px;
     background-image: url("./images/covers/1.png");
+}
+
+/* Sidebar */
+#sidebar {
+    padding: 0 30px;
+    background-color: #2D2E37;
+}
+
+#playlist-list {
+    background-color: inherit;
+}
+
+#playlist-item {
+    background-color: inherit;
+}
+
+#playlist-cover {
+    background-image: url("./images/icons/playlist-icon.png");
+    background-color: #727AC5;
+    background-size: auto;
+}
+
+#playlist-item #header {
+    color: #757578;
+    font-size: 12px;
+}
+
+#playlist-item #title {
+    font-size: 20px;
+    color: #fff;
 }
