@@ -63,21 +63,49 @@ int main(int argc, char* argv[]) {
             std::string heart_solid = "./images/icons/heart-solid-icon.png";
             std::string heart = "./images/icons/heart-icon.png";
 
-            song_item_target->data->is_liked = !song_item_target->data->is_liked;
+            Song* data = song_item_target->data;
+            song_item_target->data->is_liked = !data->is_liked;
 
-            if (song_item_target->data->is_liked) {
+            // Song is being liked
+            if (data->is_liked) {
                 song_item_target->like_icon->set(heart_solid);
                 like_count++;
 
                 SongItem* new_song_item;
                 auto song_builder = Gtk::Builder::create_from_file("song-box.xml");
-                song_builder->get_widget_derived("song-box", new_song_item, song_item_target->data);
+                song_builder->get_widget_derived("song-box", new_song_item, data);
+
+                new_song_item->like_icon->set(heart_solid);
 
                 songs_liked_list->append(*new_song_item);
             }
+            // Song is being unliked
             else {
                 song_item_target->like_icon->set(heart);
                 like_count--;
+
+                // ### Remove unliked song from songs_liked_list ###
+                int id = data->id;
+
+                // Get song_liked_list children.
+                std::vector<Gtk::Widget *> children = songs_liked_list->get_children();
+
+                for (auto child : children) {
+                   auto row = dynamic_cast<Gtk::ListBoxRow*>(child);
+                   auto song_child = dynamic_cast<SongItem*>(row->get_child());
+
+                    // Row could not be casted to MusicItem.
+                    if (song_child == nullptr) {
+                        continue;
+                    }
+
+                    int child_id = song_child->data->id;
+
+                    // Remove child with the requested id. 
+                    if (child_id == id) {
+                        songs_liked_list->remove(*child);
+                    }
+                }
             }
 
             // song_item_target->data->is_liked = !song_item_target->data->is_liked;
