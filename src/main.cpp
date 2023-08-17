@@ -41,6 +41,9 @@ int main(int argc, char* argv[]) {
         return true;
     });
 
+    Gtk::ListBox* songs_liked_list;
+    builder->get_widget("songs-liked-list", songs_liked_list);
+
     // Get song_count label
     Gtk::Label* song_count_label;
     builder->get_widget("song-count", song_count_label);
@@ -56,20 +59,28 @@ int main(int argc, char* argv[]) {
         SongItem* song_item;
         song_builder->get_widget_derived("song-box", song_item, &song);
 
-        song_item->signal_like_pressed().connect([&like_count, song_count_label](SongItem* song_item_target) -> void {
+        song_item->signal_like_pressed().connect([&like_count, song_count_label, songs_liked_list](SongItem* song_item_target) -> void {
             std::string heart_solid = "./images/icons/heart-solid-icon.png";
             std::string heart = "./images/icons/heart-icon.png";
 
+            song_item_target->data->is_liked = !song_item_target->data->is_liked;
+
             if (song_item_target->data->is_liked) {
+                song_item_target->like_icon->set(heart_solid);
+                like_count++;
+
+                SongItem* new_song_item;
+                auto song_builder = Gtk::Builder::create_from_file("song-box.xml");
+                song_builder->get_widget_derived("song-box", new_song_item, song_item_target->data);
+
+                songs_liked_list->append(*new_song_item);
+            }
+            else {
                 song_item_target->like_icon->set(heart);
                 like_count--;
             }
-            else {
-                song_item_target->like_icon->set(heart_solid);
-                like_count++;
-            }
 
-            song_item_target->data->is_liked = !song_item_target->data->is_liked;
+            // song_item_target->data->is_liked = !song_item_target->data->is_liked;
             song_count_label->set_label(std::to_string(like_count) + " songs");
         });
 
