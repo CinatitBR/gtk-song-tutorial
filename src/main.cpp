@@ -76,6 +76,13 @@ int main(int argc, char* argv[]) {
                 song_builder->get_widget_derived("song-box", new_song_item, data);
 
                 new_song_item->like_icon->set(heart_solid);
+                new_song_item->data->is_liked = true;
+
+                // Add like_pressed handler to new_sonng_item
+                new_song_item->signal_like_pressed().connect([song_item_target](SongItem* new_music_item) -> void {
+                    // Emit unlike event from the initial song_item.
+                    song_item_target->signal_like_pressed().emit(song_item_target);
+                });
 
                 songs_liked_list->append(*new_song_item);
             }
