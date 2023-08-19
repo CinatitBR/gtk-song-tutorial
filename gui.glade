@@ -34,6 +34,7 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
+                <property name="name">header-title</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Your liked songs</property>
@@ -240,6 +241,7 @@
         <property name="can-focus">False</property>
         <child>
           <object class="GtkBox">
+            <property name="name">main-wrapper</property>
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
@@ -268,6 +270,7 @@
                     <property name="can-focus">False</property>
                     <child>
                       <object class="GtkListBox" id="song-list">
+                        <property name="name">songs-list</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <child>

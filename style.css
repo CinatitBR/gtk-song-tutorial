@@ -1,3 +1,11 @@
+#main-wrapper {
+    background-color: #1C1A24;
+}
+
+#songs-list {
+    background-color: inherit;
+}
+
 #header-title {
     font-size: 25px;
     font-weight: bold;
